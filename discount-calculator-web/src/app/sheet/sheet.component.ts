@@ -88,4 +88,15 @@ export class SheetComponent implements OnInit {
     console.log('calculate result , ',this.txtYouSave,' , ',this.txtTax,' , ',this.txtTotal);
   }
 
+  onAddRow(){
+    let row = new RowModel('0','0','0');
+    this.rows.push(row);
+    this.calculateResult();
+  }
+
+  onRemoveRow(index:number){
+    this.rows.splice(index,1);
+    this.calculateResult();  
+  }
+
 }
