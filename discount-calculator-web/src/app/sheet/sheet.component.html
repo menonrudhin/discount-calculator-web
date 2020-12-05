@@ -1,5 +1,26 @@
-<div *ngFor="let row of rows; let i=index;">
-    <input #txtPrice type="text" [attr.value]="row.txtPrice" (input)="txtPrice.value.length > 0 && onTxtPriceChange(txtPrice.value,i)" />
-    <input #txtDiscount type="text" [attr.value]="row.txtDiscount" (input)="txtDiscount.value.length > 0 && onTxtDiscountChange(txtDiscount.value,i)" />
-    <input #txtAmount type="text" [attr.value]="row.txtAmount" />
+<table>
+    <tr>
+        <td>Price</td>
+        <td>Discount</td>
+        <td>Amount</td>
+    </tr>
+    <tr *ngFor="let row of rows; let i=index;">
+        <td><input #txtPrice type="text" [attr.value]="row.txtPrice" (input)="txtPrice.value.length > 0 && onTxtPriceChange(txtPrice.value,i)" /></td>
+        <td><input #txtDiscount type="text" [attr.value]="row.txtDiscount" (input)="txtDiscount.value.length > 0 && onTxtDiscountChange(txtDiscount.value,i)" /></td>
+        <td><input #txtAmount type="text" [attr.value]="row.txtAmount" /></td>
+    </tr>
+</table>
+<div *ngIf="txtYouSave">
+    <table>
+        <tr>
+            <td>You Save</td>
+            <td>Tax</td>
+            <td>Total</td>
+        </tr>
+        <tr>
+            <td><input type="text" [attr.value]="txtYouSave" /></td>
+            <td><input #_txtTax type="text" [attr.value]="txtTax" (input)="_txtTax.value.length > 0 && onTxtTaxChange(_txtTax.value)" /></td>
+            <td><input type="text" [attr.value]="txtTotal" /></td>
+        </tr>
+    </table>
 </div>
