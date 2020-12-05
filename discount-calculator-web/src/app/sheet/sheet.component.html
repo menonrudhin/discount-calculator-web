@@ -1,0 +1,5 @@
+<div *ngFor="let row of rows; let i=index;">
+    <input #txtPrice type="text" [attr.value]="row.txtPrice" (input)="txtPrice.value.length > 0 && onTxtPriceChange(txtPrice.value,i)" />
+    <input #txtDiscount type="text" [attr.value]="row.txtDiscount" (input)="txtDiscount.value.length > 0 && onTxtDiscountChange(txtDiscount.value,i)" />
+    <input #txtAmount type="text" [attr.value]="row.txtAmount" />
+</div>
