@@ -14,17 +14,9 @@ export class SheetComponent implements OnInit {
 
   constructor() { 
     this.rows = [{
-      txtPrice : '100',
-      txtDiscount : '20',
-      txtAmount : '80'      
-    },{
-      txtPrice : '100',
-      txtDiscount : '30',
-      txtAmount : '70' 
-    },{
-      txtPrice : '100',
-      txtDiscount : '50',
-      txtAmount : '50' 
+      txtPrice : '0',
+      txtDiscount : '0',
+      txtAmount : '0'      
     }];
 
     this.txtYouSave='0';
@@ -95,8 +87,10 @@ export class SheetComponent implements OnInit {
   }
 
   onRemoveRow(index:number){
-    this.rows.splice(index,1);
-    this.calculateResult();  
+    if(this.rows.length > 1) {
+      this.rows.splice(index,1);
+      this.calculateResult();  
+    }
   }
 
 }
