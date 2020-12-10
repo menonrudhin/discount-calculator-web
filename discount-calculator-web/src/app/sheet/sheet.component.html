@@ -1,31 +1,65 @@
-<div class="container card">
-    <div class="row card-body">
-        <div class="col-sm">Price</div>
-        <div class="col-sm">Discount</div>
-        <div class="col-sm">Amount</div>
-        <div class="col-sm"></div>
-    </div>        
-    <div class="row card-body" *ngFor="let row of rows; let i=index;">
-        <div class="col-sm"><input #txtPrice type="text" [attr.value]="row.txtPrice | number:'1.0-3'" (input)="txtPrice.value.length > 0 && onTxtPriceChange(txtPrice.value,i)" /></div>
-        <div class="col-sm"><input #txtDiscount type="text" [attr.value]="row.txtDiscount | number:'1.0-3'" (input)="txtDiscount.value.length > 0 && onTxtDiscountChange(txtDiscount.value,i)" /></div>
-        <div class="col-sm"><input #txtAmount type="text" [attr.value]="row.txtAmount | number:'1.0-3'" /></div>
-        <div class="col-sm"><button type="button" class="btn btn-danger" (click)="onRemoveRow(i)">-</button></div>
-    </div>
-    <div class="row card-body">
-        <div class="col-sm">
-            <button type="button" class="btn btn-success" (click)="onAddRow()">+</button>
+<div class="d-flex justify-content-center align-items-center mx-5">
+    <div class="shadow-lg p-3 mb-5 bg-white rounded font-monospace m-5">
+        <div class="p-3 container card border border-secondary">
+            <div class="card p-2 border border-warning">
+                <div class="row card-body">
+                    <div class="col-sm mx-5">
+                        <p class="fw-bold">Price</p>
+                    </div>
+                    <div class="col-sm mx-5">
+                        <p class="fw-bold">Discount</p>
+                    </div>
+                    <div class="col-sm mx-5">
+                        <p class="fw-bold">Amount</p>
+                    </div>
+                    <div class="col-sm"></div>
+                </div>
+                <div class="card border border-warning shadow p-3 mb-5 bg-white rounded"
+                    *ngFor="let row of rows; let i=index;">
+                    <div class="row card-body">
+                        <div class="col-sm"><input class="form-control" #txtPrice type="text"
+                                [attr.value]="row.txtPrice | number:'1.0-3'"
+                                (input)="txtPrice.value.length > 0 && onTxtPriceChange(txtPrice.value,i)" /></div>
+                        <div class="col-sm"><input class="form-control" #txtDiscount type="text"
+                                [attr.value]="row.txtDiscount | number:'1.0-3'"
+                                (input)="txtDiscount.value.length > 0 && onTxtDiscountChange(txtDiscount.value,i)" />
+                        </div>
+                        <div class="col-sm"><input class="form-control" #txtAmount type="text"
+                                [attr.value]="row.txtAmount | number:'1.0-3'" />
+                        </div>
+                        <div class="col-sm"><button type="button" class="btn btn-danger"
+                                (click)="onRemoveRow(i)">-</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row card-body">
+                    <div class="col-sm">
+                        <button type="button" class="btn btn-success" (click)="onAddRow()">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card border border-warning shadow p-3 mb-5 bg-white rounded">
+                <div class="row card-body">
+                    <div class="fw-bold col-sm mx-5">
+                        <p class="fw-bold">You Save</p>
+                    </div>
+                    <div class="fw-bold col-sm mx-5">
+                        <p class="fw-bold">Tax</p>
+                    </div>
+                    <div class="fw-bold col-sm mx-5">
+                        <p class="fw-bold">Total</p>
+                    </div>
+                </div>
+                <div class="row card-body">
+                    <div class="col-sm"><input class="form-control" type="text"
+                            [attr.value]="txtYouSave | number:'1.0-3'" disabled /></div>
+                    <div class="col-sm"><input class="form-control" #_txtTax type="text"
+                            [attr.value]="txtTax | number:'1.0-3'"
+                            (input)="_txtTax.value.length > 0 && onTxtTaxChange(_txtTax.value)" /></div>
+                    <div class="col-sm"><input class="form-control" type="text" [attr.value]="txtTotal | number:'1.0-3'"
+                            disabled /></div>
+                </div>
+            </div>
         </div>
     </div>
-       
-        <div class="row">
-            <div class="col-sm">You Save</div>
-            <div class="col-sm">Tax</div>
-            <div class="col-sm">Total</div>
-        </div>
-        <div class="row">
-            <div class="col-sm"><input type="text" [attr.value]="txtYouSave | number:'1.0-3'" /></div>
-            <div class="col-sm"><input #_txtTax type="text" [attr.value]="txtTax | number:'1.0-3'" (input)="_txtTax.value.length > 0 && onTxtTaxChange(_txtTax.value)" /></div>
-            <div class="col-sm"><input type="text" [attr.value]="txtTotal | number:'1.0-3'" /></div>
-        </div>    
-    
 </div>

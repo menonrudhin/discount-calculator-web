@@ -87,8 +87,10 @@ export class SheetComponent implements OnInit {
   }
 
   onRemoveRow(index:number){
-    this.rows.splice(index,1);
-    this.calculateResult();  
+    if(this.rows.length > 1) {
+      this.rows.splice(index,1);
+      this.calculateResult();  
+    }
   }
 
 }
