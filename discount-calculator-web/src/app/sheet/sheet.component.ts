@@ -25,9 +25,6 @@ export class SheetComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.txtYouSave='0';
-    this.txtTax='0';
-    this.txtTotal='0';
   }
 
   onTxtPriceChange(txtPrice:string,index:number){
