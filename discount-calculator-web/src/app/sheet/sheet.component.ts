@@ -14,13 +14,13 @@ export class SheetComponent implements OnInit {
 
   constructor() { 
     this.rows = [{
-      txtPrice : '0',
-      txtDiscount : '0',
-      txtAmount : '0'      
+      txtPrice : '',
+      txtDiscount : '',
+      txtAmount : ''      
     }];
 
     this.txtYouSave='0';
-    this.txtTax='0';
+    this.txtTax='';
     this.txtTotal='0';
   }
 
@@ -28,7 +28,7 @@ export class SheetComponent implements OnInit {
   }
 
   onTxtPriceChange(txtPrice:string,index:number){
-    this.rows[index].txtPrice=txtPrice;
+    this.rows[index].txtPrice=txtPrice;    
     console.log('set new price',this.rows[index].txtPrice,' , index = ', index);
     this.calculateRow(this.rows[index]);
     this.calculateResult();
@@ -49,7 +49,9 @@ export class SheetComponent implements OnInit {
 
   calculateRow(rowModel : RowModel){
     let price = Number(rowModel.txtPrice);
+    price = Number.isNaN(price) ? 0 : price;
     let discount = Number(rowModel.txtDiscount);
+    discount = Number.isNaN(discount) ? 0 : discount;
     let amount = price - (price * (discount/100));
     console.log('new amount', amount);
     rowModel.txtAmount = String(amount);    
@@ -62,10 +64,12 @@ export class SheetComponent implements OnInit {
     let total:number = 0;
     let actualTotal:number = 0;
     let tax:number = Number(this.txtTax);
+    tax = Number.isNaN(tax) ? 0 : tax;
     this.rows.forEach(function (e) {
       price = Number(e.txtPrice);
       amount = Number(e.txtAmount);
-      
+      price = Number.isNaN(price) ? 0 : price;
+      amount = Number.isNaN(amount) ? 0 : amount;
       total+=amount;
       actualTotal+=price;
     });
@@ -78,9 +82,9 @@ export class SheetComponent implements OnInit {
   }
 
   onAddRow(){
-    let row = new RowModel('0','0','0');
+    let row = new RowModel('','','');
     this.rows.push(row);
-    this.calculateResult();
+    console.log('new row added : ', row);
   }
 
   onRemoveRow(index:number){
