@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SheetComponent } from './sheet/sheet.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ExchangeRateComponent } from './exchange-rate/exchange-rate.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SheetComponent
+    SheetComponent,
+    ExchangeRateComponent
   ],
   imports: [
     BrowserModule,
