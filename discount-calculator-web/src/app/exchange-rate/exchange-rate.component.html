@@ -1,1 +1,11 @@
-<p>exchange-rate works!</p>
+<label>Convert currency</label>
+<select id="from" class="form-control">
+    <option [selected]="fromValue=='CAD'">CAD</option>
+    <option [selected]="fromValue=='INR'">INR</option>
+</select>
+To
+<select id="to" class="form-control">
+    <option [selected]="toValue=='CAD'">CAD</option>
+    <option [selected]="toValue=='INR'">INR</option>
+</select>
+<input class="form-control" type="text" [attr.value]="toCurrencyAmount | number:'1.0-3'" disabled />
