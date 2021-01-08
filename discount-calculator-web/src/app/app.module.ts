@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SheetComponent } from './sheet/sheet.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ExchangeRateComponent } from './exchange-rate/exchange-rate.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ExchangeRateComponent } from './exchange-rate/exchange-rate.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
