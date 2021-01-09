@@ -33,7 +33,12 @@ export class ExchangeRateComponent implements OnInit,OnChanges {
   }
 
   ngOnInit(): void {
-    
+    setInterval(()=>{this.exchangeRateService.getExchangeRate(this.fromValue,this.toValue).subscribe((res : any) => {    // fetch latest exchange rate from the API  
+      let properties = Object.getOwnPropertyNames(res.rates);            
+      let property= properties[0];      
+      this.exchangeRate = res.rates[property];
+      console.log(this.fromValue,' to ',this.toValue,' exchange rate fetched = ',this.exchangeRate);
+    })},10000);
   }
 
   ngOnChanges() : void {
