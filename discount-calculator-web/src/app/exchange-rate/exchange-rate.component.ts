@@ -22,16 +22,13 @@ export class ExchangeRateComponent implements OnInit,OnChanges {
     this.toValue = 'INR';
     this.toCurrencyAmount = '0';
     this.fromCurrencyAmount = '10';
-    this.exchangeRateService.getExchangeRate(this.fromValue,this.toValue).subscribe((res : any) => {
-      //console.log('http response = ',res);
-      let properties = Object.getOwnPropertyNames(res.rates)            
-      let property :string = "'" + properties[0] + "'";
-      console.log(property);
-      console.log(res.rates[property]);
-      this.exchangeRate = res.rates['INR'];
-      console.log(this.exchangeRate);
+    this.exchangeRateService.getExchangeRate(this.fromValue,this.toValue).subscribe((res : any) => {    // fetch latest exchange rate from the API  
+      let properties = Object.getOwnPropertyNames(res.rates);            
+      let property= properties[0];      
+      this.exchangeRate = res.rates[property];
+      console.log(this.fromValue,' to ',this.toValue,' exchange rate fetched = ',this.exchangeRate);
     });
-    this.exchangeRate = 0;
+    this.exchangeRate = 0; // will be overriden by the exchange rate fetched from the API
 
   }
 
@@ -43,6 +40,6 @@ export class ExchangeRateComponent implements OnInit,OnChanges {
     let fromVal = Number(this.fromCurrencyAmount);
     let toVal = fromVal*this.exchangeRate;
     console.log('converted = ',toVal);
-    this.toCurrencyAmount = toVal+'';
+    this.toCurrencyAmount = toVal+'';    
   }
 }
