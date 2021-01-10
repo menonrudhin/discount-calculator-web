@@ -21,14 +21,14 @@
                     <div class="row card-body">
                         <div class="col-sm">
                             <label class="d-xs-block d-sm-none">Price</label>
-                            <input class="form-control" #txtPrice type="text"
+                            <input class="form-control" #txtPrice type="text" pattern="[0-9]+[.]??[0-9]*"
                                 [attr.value]="row.txtPrice| number:'1.0-3'"
-                                (input)="txtPrice.value.length > 0 && onTxtPriceChange(txtPrice.value,i)" onClick="this.select();" /></div>
+                                (input)="onTxtPriceChange(txtPrice.value,i)" onClick="this.select();" /></div>
                         <div class="col-sm">
                             <label class="d-xs-block d-sm-none">Discount</label>
-                            <input class="form-control" #txtDiscount type="text"
+                            <input class="form-control" #txtDiscount type="text" pattern="[0-9]+[.]??[0-9]*"
                                 [attr.value]="row.txtDiscount | number:'1.0-3'"
-                                (input)="txtDiscount.value.length > 0 && onTxtDiscountChange(txtDiscount.value,i)" onClick="this.select();" />
+                                (input)="onTxtDiscountChange(txtDiscount.value,i)" onClick="this.select();" />
                         </div>
                         <div class="col-sm">
                             <label class="d-xs-block d-sm-none">Amount</label>
@@ -70,9 +70,9 @@
                             [attr.value]="txtYouSave | number:'1.0-3'" disabled /></div>
                     <div class="col-sm">
                         <label class="d-xs-block d-sm-none">Tax</label>
-                        <input class="form-control" #_txtTax type="text"
+                        <input class="form-control" #_txtTax type="text" pattern="[0-9]+[.]??[0-9]*"
                             [attr.value]="txtTax | number:'1.0-3'"
-                            (input)="_txtTax.value.length > 0 && onTxtTaxChange(_txtTax.value)" onClick="this.select();" /></div>
+                            (input)="onTxtTaxChange(_txtTax.value)" onClick="this.select();" /></div>
                     <div class="col-sm">
                         <label class="d-xs-block d-sm-none">Total</label>
                         <input class="form-control" type="text" [attr.value]="txtTotal | number:'1.0-3'"
