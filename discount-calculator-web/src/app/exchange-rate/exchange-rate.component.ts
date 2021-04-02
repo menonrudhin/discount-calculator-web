@@ -41,7 +41,7 @@ export class ExchangeRateComponent implements OnInit,OnChanges {
       this.parseExchangeRate(res);
       this.calculate();
     })},10000);*/
-    console.log('discount-calculator-web v0.2');
+    console.log('discount-calculator-web v0.3');
   }
 
   ngOnChanges() : void {
