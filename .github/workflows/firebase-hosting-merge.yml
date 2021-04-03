@@ -12,10 +12,10 @@ jobs:
     steps:
       - name : Use Node 12.x
       - uses: actions/checkout@v2
-      - with:
+        with:
           node-version : '12.x'
-      - run: cd discount-calculator-web && npm run build --prod
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+        run: npm run build --prod
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_DISCOUNT_CALCULATOR_WEB }}'
