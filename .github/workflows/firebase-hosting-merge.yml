@@ -15,6 +15,7 @@ jobs:
         with:
           node-version : '12.x'
       - name : Build app
+        entrypoint : "./discount-calculator-web"
         run : npm run build --prod
       - name : Firebase steps
         uses: FirebaseExtended/action-hosting-deploy@v0
