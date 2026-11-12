@@ -35,6 +35,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Project Console: https://console.firebase.google.com/project/discount-calculator-web/overview
 Hosting URL: https://discount-calculator-web.web.app
 
+## Firebase Analytics
+
+The app records one `app_access` event when it starts. Firebase Analytics
+automatically timestamps the event and exposes its counts in the Firebase
+Console under **Analytics > Events**. The Firebase Web App config is set in both
+`src/environments/environment.ts` and `src/environments/environment.prod.ts`.
+If switching Firebase projects, update those values and the project ID in both
+files.
+
 
 ## How to do firebase deployment
 [rudhin@localhost discount-calculator-web]$ firebase init
