@@ -125,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "discount-calculator-web"
+  "defaultProject": "discount-calculator-web",
+  "cli": {
+    "analytics": false
+  }
 }
