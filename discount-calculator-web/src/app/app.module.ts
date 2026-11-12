@@ -7,6 +7,9 @@ import { SheetComponent } from './sheet/sheet.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ExchangeRateComponent } from './exchange-rate/exchange-rate.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,13 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    ...(environment.analyticsEnabled
+      ? [
+          AngularFireModule.initializeApp(environment.firebase),
+          AngularFireAnalyticsModule
+        ]
+      : [])
   ],
   providers: [],
   bootstrap: [AppComponent]
